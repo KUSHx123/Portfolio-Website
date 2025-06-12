@@ -35,7 +35,7 @@ const Education = () => {
       year: "2021 - 2025",
       title: "Bachelor of Technology in Information Technology",
       institution: "Amity University",
-      description: "CGPA: 7.19"
+      description: "CGPA: 7.29"
     },
     {
       year: "2020 - 2021",
