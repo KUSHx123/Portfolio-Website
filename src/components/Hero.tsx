@@ -47,7 +47,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </motion.a>
             <motion.a
-              href="https://drive.google.com/file/d/1UL1xvF3_heJvCCTjsr3NvB-w7ddort0h/view?usp=sharing"
+              href="https://drive.google.com/file/d/1M1NkGfp_BMVI5cGQoPDG31-2eiP1T0_k/view?usp=sharing"
               download
               className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-base font-medium rounded-md text-blue-600 hover:bg-blue-50 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
