@@ -7,6 +7,7 @@ type Project = {
   description: string;
   technologies: string[];
   githubUrl: string;
+  liveUrl?: string;
   longDescription: string;
   features: string[];
   challenges: string[];
@@ -80,17 +81,32 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
           ))}
         </div>
 
-        <motion.a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Github className="h-5 w-5 mr-2" />
-          View on GitHub
-        </motion.a>
+        <div className="flex gap-4 mt-4">
+          <motion.a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Github className="h-5 w-5 mr-2" />
+            View on GitHub
+          </motion.a>
+
+          {project.liveUrl && (
+            <motion.a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              🚀 Live Demo
+            </motion.a>
+          )}
+        </div>
       </div>
     </motion.div>
   </motion.div>
@@ -135,81 +151,84 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      title: "To-Do List",
-      description: "Designed and implemented a responsive to-do list application with dynamic functionality for adding, editing, and deleting tasks efficiently.",
-      longDescription: "A comprehensive task management application built with modern web technologies. The application features a clean, intuitive interface that allows users to efficiently organize their tasks with real-time updates and persistent storage.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      githubUrl: "https://github.com/KUSHx123/TO-DO-LIST",
+      title: "Heart Disease Prediction Web App",
+      description: "Developed a machine learning-powered web application to predict heart disease based on user medical input.",
+      longDescription: "A full-stack application that uses Logistic Regression and Random Forest models to predict the likelihood of heart disease. The app features a responsive React UI, secure FastAPI backend, and Supabase for user data storage. It is deployed on Vercel (frontend) and Railway (backend).",
+      technologies: ["React", "TypeScript", "FastAPI", "Python", "scikit-learn", "Supabase"],
+      githubUrl: "https://github.com/KUSHx123/Heart-Disease-Prediction-Application",
+      liveUrl: "https://heart-disease-prediction-application.vercel.app/",
       features: [
-        "Real-time task updates",
-        "Drag and drop task reordering",
-        "Task categories and priority levels",
-        "Local storage persistence",
-        "Responsive design for all devices"
+        "Heart disease risk prediction using ML",
+        "User authentication and data storage with Supabase",
+        "Interactive input form for health parameters",
+        "Responsive UI with result visualization",
+        "Live deployment using Vercel and Railway"
       ],
       challenges: [
-        "Implementing smooth drag and drop functionality",
-        "Managing complex state updates",
-        "Ensuring data persistence across sessions",
-        "Optimizing performance for large task lists"
+        "Integrating ML models into FastAPI backend",
+        "Handling asynchronous data flow between frontend and backend",
+        "Ensuring accuracy of predictions",
+        "Deployment and CI/CD setup for full-stack app"
       ],
       learnings: [
-        "Advanced DOM manipulation techniques",
-        "State management best practices",
-        "Local storage optimization",
-        "Performance optimization strategies"
+        "Connecting ML with real-world frontend interfaces",
+        "REST API development using FastAPI",
+        "Model training, evaluation, and integration",
+        "Full-stack deployment strategies"
       ]
     },
     {
-      title: "E-commerce UI",
-      description: "Utilized modern web technologies to design and implement a responsive e-commerce user interface with optimized navigation and performance.",
-      longDescription: "A modern e-commerce interface that focuses on user experience and performance. The project implements best practices in web development and features a responsive design that works seamlessly across all devices.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      githubUrl: "https://github.com/KUSHx123/E-Commerce-Product-Page",
+      title: "Doctor Appointment Booking System",
+      description: "Created a MERN stack application for booking doctor appointments with real-time updates and secure access.",
+      longDescription: "A user-friendly doctor appointment platform with secure login, real-time appointment management, and intuitive browsing. Users can view doctor profiles, check availability, and book appointments efficiently. Built with MERN stack and deployed for public access.",
+      technologies: ["MongoDB", "Express.js", "React.js", "Node.js"],
+      githubUrl: "https://github.com/KUSHx123/Doctor-Appointment-Booking-System",
+      liveUrl: "https://prescripto.vercel.app/",
       features: [
-        "Responsive product grid layout",
-        "Advanced filtering and sorting",
-        "Shopping cart functionality",
-        "Product quick view",
-        "Wishlist management"
+        "User registration and authentication",
+        "Doctor profile browsing and availability checking",
+        "Real-time appointment booking system",
+        "Admin panel for doctor and appointment management",
+        "Responsive and intuitive UI/UX"
       ],
       challenges: [
-        "Creating a responsive grid system",
-        "Implementing efficient search and filter",
-        "Optimizing image loading",
-        "Managing complex state across components"
+        "Implementing role-based access control",
+        "Real-time updates using database triggers",
+        "Ensuring secure appointment workflows",
+        "Creating reusable and dynamic UI components"
       ],
       learnings: [
-        "Advanced CSS Grid and Flexbox",
-        "Performance optimization techniques",
-        "State management patterns",
-        "Responsive design best practices"
+        "MERN stack integration and best practices",
+        "Authentication flows and security",
+        "Full-stack app design and optimization",
+        "MongoDB schema design and queries"
       ]
     },
     {
-      title: "Password Strength Checker",
-      description: "Developed a comprehensive password strength checker with real-time feedback using Python backend and modern frontend technologies.",
-      longDescription: "A security-focused application that helps users create strong passwords by providing real-time feedback on password strength. The application uses advanced algorithms to analyze password complexity and provides specific recommendations for improvement.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      githubUrl: "https://github.com/KUSHx123/PASSWORD-STRENGTH-CHECKER",
+      title: "Portfolio Website",
+      description: "Designed a modern and responsive portfolio site to showcase projects, skills, and contact information.",
+      longDescription: "A visually appealing personal portfolio website built using React, TypeScript, and Tailwind CSS. It includes an interactive project section, resume link, and contact form. Optimized for performance and responsiveness across devices, deployed on Netlify.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      githubUrl: "https://github.com/KUSHx123/Portfolio-Website",
+      liveUrl: "https://kush-portfolio52.netlify.app/",
       features: [
-        "Real-time strength analysis",
-        "Visual strength indicators",
-        "Specific improvement suggestions",
-        "Common password detection",
-        "Password generation suggestions"
+        "Project showcase section with detailed views",
+        "Responsive design across mobile and desktop",
+        "Interactive contact form with validation",
+        "Clean and modern user interface",
+        "Live deployment on Netlify"
       ],
       challenges: [
-        "Implementing secure password analysis",
-        "Creating accurate strength algorithms",
-        "Handling real-time validation",
-        "Balancing security and user experience"
+        "Creating a fully responsive layout with Tailwind",
+        "Maintaining design consistency and theming",
+        "Form validation and accessibility",
+        "Optimizing images and assets for performance"
       ],
       learnings: [
-        "Security best practices",
-        "Python-JavaScript integration",
-        "Regular expressions",
-        "User interface feedback patterns"
+        "Tailwind CSS utility-first styling",
+        "TypeScript with React for scalable UI",
+        "Frontend deployment pipelines",
+        "UI/UX design principles"
       ]
     }
   ];
